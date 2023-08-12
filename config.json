@@ -1,8 +1,14 @@
 {
-  "max_ite": 10000,
-  "num_ciudades": 10000,
-  "num_individuos": 100,
-  "gamma_torneo": 2,
-  "prob_cruce": 0.9,
-  "prob_mutacion": 0.05
+  "max_ite": 1200,
+  "dimension": 10,
+  "num_individuos": 30,
+  "num_padres": 5,
+  "num_hijos": 200,
+  "box": 1,
+  "n_sigmas": true,
+  "discreto": false,
+  "eps": 0.000001,
+  "tau": 0.22,
+  "tau_i": 0.42,
+  "elitismo": true
 }
