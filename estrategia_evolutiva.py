@@ -128,7 +128,7 @@ class Poblacion:
         self.mutacion(eps, tau, tau_i)
         self.evaluar(f)
         self.seleccion_supervivientes(elitismo)
-        print('Tiempo iteracion: ', time.time() - t)
+        # print('Tiempo iteracion: ', time.time() - t)
 
     def media_y_desviacion(self):
         valores = [ind.valor for ind in self.poblacion]
