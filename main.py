@@ -73,23 +73,21 @@ class RunSimulation:
             for ej in ejecuciones:
                 path = 'results/evol/' + f.__name__ + '/' + '_'.join([str(p) for p in param]) + '_e' + str(ej) + '.csv'
                 print('EJECUCION ', ej)
-                df = pd.DataFrame(index=range(self.max_ite), columns=['Mejor', 'Media', 'Std', 'Mejor ind'])
+                df = pd.DataFrame(index=range(self.max_ite), columns=['Mejor', 'Media', 'Std'])
                 self.individuos = Poblacion(
                     self.dimension, self.num_individuos, param[0], self.num_hijos, param[3], self.box)
                 self.individuos.evaluar(self.f, padres=True)
                 mejor_media = np.inf
                 cont_paciencia = 0
                 for i in range(self.max_ite):
-                    print(i)
                     self.individuos.ejecutar_iteracion(
                         param[4], param[1], param[2], param[2] * self.dimension ** 1/4, self.f, param[5])
                     media_desviacion = self.individuos.media_y_desviacion()
                     df.iloc[i] = [
                         self.individuos.mejor_individuo.valor,
-                        *media_desviacion,
-                        self.individuos.mejor_individuo.solucion
+                        *media_desviacion
                              ]
-                    print(media_desviacion[0])
+                    print("Iteracion ", i, " media ", media_desviacion[0])
                     if media_desviacion[0] < mejor_media:
                         mejor_media = media_desviacion[0]
                         cont_paciencia = 0
@@ -98,8 +96,7 @@ class RunSimulation:
                         if cont_paciencia > paciencia:
                             break
 
-                    if i % 1000 == 0:
-                        df.to_csv(path)
+                df.to_csv(path)
 
 
 if __name__ == '__main__':
@@ -107,6 +104,6 @@ if __name__ == '__main__':
     f = functions.powell
     # RunSimulation(conf_path, f).simulate(paciencia=100)
 
-    RunSimulation(conf_path, f).simulate_probs(ejecuciones=[0, 1], paciencia=100)
+    RunSimulation(conf_path, f).simulate_probs(ejecuciones=[2, 3], paciencia=100)
 
 
