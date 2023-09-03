@@ -7,4 +7,4 @@ def powell(x):
 
 def xinshe(x):
     ss = np.sum(np.square(np.sin(x))) - np.exp(-np.sum(np.square(x)))
-    return ss * np.exp(-np.sum(np.square(np.sin(np.abs(x)))))
+    return ss * np.exp(-np.sum(np.square(np.sin(np.sqrt(np.abs(x))))))

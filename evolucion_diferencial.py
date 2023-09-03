@@ -55,5 +55,5 @@ def main(f, ejs):
 
 if __name__ == '__main__':
     ejecuciones = [0, 1, 2, 3, 4]
-    f = functions.powell
+    f = functions.xinshe
     main(f, ejecuciones)

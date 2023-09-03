@@ -87,7 +87,7 @@ class RunSimulation:
                         self.individuos.mejor_individuo.valor,
                         *media_desviacion
                              ]
-                    print("Iteracion ", i, " media ", media_desviacion[0])
+                    print("Iteracion ", i, " media ", media_desviacion[0], ' mejor ', self.individuos.mejor_individuo.valor)
                     if media_desviacion[0] < mejor_media:
                         mejor_media = media_desviacion[0]
                         cont_paciencia = 0
@@ -101,9 +101,9 @@ class RunSimulation:
 
 if __name__ == '__main__':
     conf_path = 'config.json'
-    f = functions.powell
+    f = functions.xinshe
     # RunSimulation(conf_path, f).simulate(paciencia=100)
 
-    RunSimulation(conf_path, f).simulate_probs(ejecuciones=[2, 3], paciencia=100)
+    RunSimulation(conf_path, f).simulate_probs(ejecuciones=[3], paciencia=100)
 
 

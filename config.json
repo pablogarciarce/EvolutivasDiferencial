@@ -4,7 +4,7 @@
   "num_individuos": 30,
   "num_padres": 5,
   "num_hijos": 200,
-  "box": 1,
+  "box": 10,
   "n_sigmas": true,
   "discreto": false,
   "eps": 0.000001,
